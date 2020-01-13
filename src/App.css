@@ -120,7 +120,6 @@ h6 {
 body.page-template {
   font-family: "Ubuntu";
   color: var(--body-text);
-  background-image: url('/img/black_paper_800x800.png')
 }
 
 article#main-container {

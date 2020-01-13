@@ -4,16 +4,16 @@ import './App.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from "./pages/Home";
-
+import NoMatch from "./pages";
 
 function App() {
   return (
-    <Router>
+    <Router basename={window.location.pathname || ''}>
       <div className="App">
         <Header />
         <Switch>
-          <Route exact path="/clicky-game" component={Home} />
           <Route exact path="/" component={Home} />
+          <Route path="*" component={NoMatch} /> 
         </Switch>
         <Footer />
       </div>
