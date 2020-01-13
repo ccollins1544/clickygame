@@ -1,27 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Wrapper from './components/Wrapper'
-import Card from './components/Card'
-import { Col, Row, Container, SectionRow } from "./components/Grid";
+import Home from "./pages/Home";
+
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Wrapper id="main-container">
-        <SectionRow elementID="main-section">
-          <Col size="col-lg-12">
-            <Card heading="Page Title">
-            </Card>
-          </Col>
-        </SectionRow>
-      </Wrapper>
-      <Footer />
-    </div>
-  );
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact path="/clicky-game" component={Home} />
+          <Route exact path="/" component={Home} />
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
+  ); 
 }
 
 export default App;

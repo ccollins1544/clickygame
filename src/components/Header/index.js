@@ -13,8 +13,8 @@ function Header(){
         navBarBrand={true}
         elementID="main-nav"
       >
-        <li className="nav-item"> 
-          <a className="nav-link" href="/"><FontAwesomeIcon icon={faMugHot} /> # </a>
+        <li className="nav-item">
+          <a className="nav-link" href="."><FontAwesomeIcon icon={faMugHot} /> # </a>
         </li>
       </Nav>
       </div>
