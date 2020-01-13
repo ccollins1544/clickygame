@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/clickygame/precache-manifest.f2eaa960615a9f19476035daf84261c4.js"
+  "/clickygame/precache-manifest.52072ddb67191f26e1e13f32e3dccc50.js"
 );
 
 self.addEventListener('message', (event) => {
