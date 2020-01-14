@@ -1,6 +1,7 @@
 import React from 'react';
+import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMugHot } from '@fortawesome/free-solid-svg-icons'
+import { faDice, faTrophy } from '@fortawesome/free-solid-svg-icons'
 import Nav from '../Nav'
 
 function Header(){
@@ -14,7 +15,10 @@ function Header(){
         elementID="main-nav"
       >
         <li className="nav-item">
-          <a className="nav-link" href="."><FontAwesomeIcon icon={faMugHot} /> # </a>
+          <a className="nav-link" href="."><FontAwesomeIcon icon={faDice} /> Score</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="."><FontAwesomeIcon icon={faTrophy} /> Top Score </a>
         </li>
       </Nav>
       </div>
