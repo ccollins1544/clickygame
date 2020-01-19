@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Header from '../components/Header'
 import Wrapper from '../components/Wrapper';
 import { Col, Row, Container, SectionRow } from '../components/Grid';
 import Hero from '../components/Hero';
@@ -10,7 +11,7 @@ class Home extends Component {
     clickedHeroes: [],
     score: 0,
     highScore: 0,
-    pageTitle: "Home"
+    pageTitle: "Clicky Game.."
   };
 
   componentDidMount(){
@@ -18,37 +19,70 @@ class Home extends Component {
   }
 
   loadHeroes = () => {
-    axios.get('./heroes.json')
-      .then(res => this.setState({heroes: res.data }))
-      .catch(err => console.log(err));
+    if(this.state.heroes.length === 0){
+      axios.get('./heroes.json')
+        .then(res => this.setState({ heroes: this.shuffleArray(res.data) }))
+        .catch(err => console.log(err));
+    }else{
+      this.setState( prevState => ({heroes: this.shuffleArray(prevState.heroes)}));
+    }
   };
 
   handleHeroClick = id => {
-    console.log("id", id);
+    if(!this.state.clickedHeroes.includes(id)){
+      this.setState( prevState => ({
+        clickedHeroes: [...prevState.clickedHeroes, id],
+        score: prevState.score + 1
+      }));
+
+    }else{
+      this.setState( prevState => ({
+        clickedHeroes: [],
+        score: 0,
+        highScore: (prevState.score > prevState.highScore) ? prevState.score : prevState.highScore
+      }));
+    }
+
+    this.loadHeroes();
     return;
   };
 
+  shuffleArray = a => {
+    for (let i = a.length - 1; i > 0; i--) { 
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
   render(){ 
     return (
-      <Wrapper id="main-container">
-        <SectionRow elementID="main-section">
-          {this.state.heroes.length ? (
-            this.state.heroes.map(hero => {
-              return (
-                <Hero 
-                  key={hero._id}
-                  id={hero._id}
-                  heading={hero.name}
-                  src={hero.image}
-                  handleHeroClick={this.handleHeroClick}
-                />
-              );
-            })
-          ) : (
-            <h3>No Heroes to Display</h3>
-          )}
-        </SectionRow>
-      </Wrapper>
+      <>
+        <Header 
+          score={this.state.score}
+          highScore={this.state.highScore}
+          pageTitle={this.state.pageTitle}
+        />
+        <Wrapper id="main-container">
+          <SectionRow elementID="main-section">
+            {this.state.heroes.length ? (
+              this.state.heroes.map(hero => {
+                return (
+                  <Hero 
+                    key={hero._id}
+                    id={hero._id}
+                    heading={hero.name}
+                    src={hero.image}
+                    handleHeroClick={this.handleHeroClick}
+                  />
+                );
+              })
+            ) : (
+              <h3>No Heroes to Display</h3>
+            )}
+          </SectionRow>
+        </Wrapper>
+      </>
     );
   }
 }

@@ -10,6 +10,7 @@
   --cool-red: #E9290F;
   --cool-green: #28a745;
   --footer-hover-text: rgba(233, 41, 15, .9);
+  --gold: #DAA520;
 }
 
 .container-fluid {
@@ -18,6 +19,22 @@
   top: 0;
   width: 100%;
   z-index: 1;
-  border-bottom-color: var(--cool-green);
-  box-shadow: 0px 2px 4px 0px var(--cool-green);
+}
+
+.badge-success {
+  color: #fff;
+  background-color: var(--cool-green);
+}
+
+.badge-secondary {
+  color: #fff;
+  background-color: var(--gold);
+}
+
+.score {
+  color: var(--cool-green) !important;
+}
+
+.top_score {
+  color: var(--gold) !important;
 }

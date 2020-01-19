@@ -32,7 +32,7 @@ class ImageCard extends Component {
           { 
             max: 40,
             perspective: 1000,
-            scale: 1.75,
+            scale: 1.50,
             speed: 300,
             transition: true,
             reset: true,
