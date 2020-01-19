@@ -11,7 +11,8 @@ class Home extends Component {
     clickedHeroes: [],
     score: 0,
     highScore: 0,
-    pageTitle: "Clicky Game.."
+    pageTitle: "Clicky Game..",
+    game_message: "Click any image to start"
   };
 
   componentDidMount(){
@@ -31,12 +32,14 @@ class Home extends Component {
   handleHeroClick = id => {
     if(!this.state.clickedHeroes.includes(id)){
       this.setState( prevState => ({
+        game_message: "Good Job",
         clickedHeroes: [...prevState.clickedHeroes, id],
         score: prevState.score + 1
       }));
 
     }else{
       this.setState( prevState => ({
+        game_message: "You Lose!",
         clickedHeroes: [],
         score: 0,
         highScore: (prevState.score > prevState.highScore) ? prevState.score : prevState.highScore
@@ -59,6 +62,7 @@ class Home extends Component {
     return (
       <>
         <Header 
+          game_message={this.state.game_message}
           score={this.state.score}
           highScore={this.state.highScore}
           pageTitle={this.state.pageTitle}

@@ -3,6 +3,8 @@
 Memorization game created using create-react-app.
 
 # Using Clicky Game
+Click any image to increase your score but don't click the same image twice or you lose. 
+
 Access live site [here](https://ccollins1544.github.io/clickygame/) 
 
 ## Available Scripts

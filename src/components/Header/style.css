@@ -38,3 +38,19 @@
 .top_score {
   color: var(--gold) !important;
 }
+
+.game_message {
+  padding: 3px;
+  position: absolute;
+  width: 100%;
+  right: 0;
+  left: 0;
+}
+
+.game_message.success {
+  color: var(--cool-green);
+}
+
+.game_message.fail {
+  color: var(--cool-red);
+}
