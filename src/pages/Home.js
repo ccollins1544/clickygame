@@ -11,7 +11,7 @@ class Home extends Component {
     clickedHeroes: [],
     score: 0,
     highScore: 0,
-    pageTitle: "Clicky Game..",
+    pageTitle: "Clicky Game",
     game_message: "Click any image to start"
   };
 
